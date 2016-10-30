@@ -41,7 +41,7 @@
     <ul id="nav-mobile" class="side-nav fixed">
         <li class="no-padding">
           <ul class="collapsible collapsible-accordion">
-            <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Primeros Pasos</a>
+            <li><a class="collapsible-header  waves-effect waves-teal"><b>Primeros Pasos</b></a>
               <div class="collapsible-body">
                 <ul>
                   <!--aqui van los metodos que agregan y tal-->
@@ -96,10 +96,28 @@
                 </ul>
               </div>
             </li>
-            <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Procesos</a>
+
+            <li class="bold"><a class="collapsible-header  waves-effect waves-teal"><b>Procesos</b></a>
               <div class="collapsible-body">
                 <ul>
-                  <!--Aqui van los componentes-->
+                  <!--Aqui van los proceso-->
+                  <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Numero Nodos</a>
+                  <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Numeros Pares</a>
+                  <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Arbol Completo</a>
+                  <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Ver Nodos Hojas</a>
+                  <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Altura</a>
+                </ul>
+              </div>
+            </li>
+
+            <li class="bold"><a class="collapsible-header  waves-effect waves-teal"><b>Recorridos</b></a>
+              <div class="collapsible-body">
+                <ul>
+                  <!--Aqui van los proceso-->
+                  <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Niveles</a>
+                  <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Pre-Orden</a>
+                  <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>In-Orden</a>
+                  <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Pos-Orden</a>
                 </ul>
               </div>
             </li>
