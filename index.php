@@ -1,6 +1,11 @@
 <?php
+include ("ArbolBinario.php");
 
+session_start();
 
+if (!isset($_SESSION["ArbolBinario"])) {
+  $_SESSION["ArbolBinario"]= new ArbolBinario(null);
+}
  ?>
 
  <!DOCTYPE html>
@@ -49,11 +54,11 @@
                   <div class="row">
                     <div class="">
                       <div class="card-panel">
-                        <form class="center-align" action="index2.php" method="post">
+                        <form class="center-align" action="index.php" method="post">
                           <div class="">
                             Crear Arbol
-                            <input placeholder="Nombre de la Raiz" type="text" name="nodoRaiz" class="validate">
-                            <button class="btn waves-effect waves-light " type="submit" name="action">Crear Arbol
+                            <input placeholder="Nombre de la Raiz" type="number" name="nodoRaiz" class="validate">
+                            <button class="btn waves-effect waves-light " type="submit" name="action" action="index.php">Crear Arbol
                               <i class="material-icons right">send</i>
                             </button>
                           </div>
@@ -63,14 +68,14 @@
 
                     <div class="">
                       <div class="card-panel">
-                        <form class="center-align" action="index2.php" method="post">
+                        <form class="center-align" action="index.php" method="post">
                           <div class="">
                             Crear Nodos
-                            <input placeholder="Nombre del Papa" type="text" name="nodoPadre" class="validate">
-                            <input placeholder="Nombre del Hijo" type="text" name="nodoHijo" class="validate">
-                            <input type="radio" name="group1" id="test1">
+                            <input placeholder="Nombre del Papa" type="number" name="nodoPadre" class="validate">
+                            <input placeholder="Nombre del Hijo" type="number" name="nodoHijo" class="validate">
+                            <input type="radio" name="group1" id="test1" value="derecha">
                             <label for="test1">Derecha</label>
-                            <input type="radio" name="group1" id="test2">
+                            <input type="radio" name="group1" id="test2" value="izquierda">
                             <label for="test2">Izquierda</label>
                             <button class="btn waves-effect waves-light " type="submit" name="action">Agregar Nodos
                               <i class="material-icons right">send</i>
@@ -82,7 +87,7 @@
 
                     <div class="">
                       <div class="card-panel">
-                        <form class="center-align" action="index2.php" method="post">
+                        <form class="center-align" action="index.php" method="post">
                           <div class="">
                             Eliminar Nodo
                             <input placeholder="Nombre del Nodo" type="text" name="eliminarNodo" class="validate">
@@ -130,3 +135,26 @@
      <script type="text/javascript" src="js/main.js"></script>
    </body>
  </html>
+
+ <?php
+ if(isset($_POST["nodoRaiz"])){
+   $_SESSION["ArbolBinario"]->__construct(new NodoBinario($_POST["nodoRaiz"]+=0));
+   print_r($_SESSION['ArbolBinario']);
+ }
+
+ //Para crear nodo
+ if(isset($_POST["nodoPadre"]) && isset($_POST["nodoHijo"])){
+   $nodoHijo=new NodoBinario($_POST["nodoHijo"]+=0);
+   $_SESSION['ArbolBinario']->agregarNodo($_POST["nodoPadre"]+0, $_POST["group1"], $nodoHijo);
+   print_r($_SESSION['ArbolBinario']);
+ }
+
+ //Para eliminar nodo
+ if(isset($_POST["eliminarNodo"])){
+   $_SESSION["ArbolBinario"]->eliminarNodo($_POST["eliminarNodo"]+0);
+   print_r($_SESSION['ArbolBinario']);
+ }
+
+
+
+ ?>
